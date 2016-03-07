@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>jQuery UI Accordion Example </title>
+      <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script>
+  $(function() {
+      $( "#tabs" ).tabs();
+    });
+     </script>
+  </head>
+<body>
+ 
+<div id="tabs">
+  <ul>
+  <li><a href="#tabs-1">Account overview</a></li>
+  <li><a href="#tabs-2">Billing Information</a></li>
+  </ul>
+  <div id="tabs-1">
+  <p> <div>
+         <h3><u>Time and Employee management</u><td></td><td></td><td><input type = "button" value = "Add to cart"></td></h3>
+      <tr><td>Plan:</td><td></td>time and employee management sysytem with unlimited</tr><br>
+      <tr><td>Price:</td><del>$9.00</del>$0.00</tr><br>
+      <tr><td>Subscription amount:</td><td></td>$90.00</tr><br>
+      <tr><td>Discount:</td>100%(Unlimited users for beta joiners)</tr><br>
+      <tr><td>Billed amount:</td>$0.00</tr>
+   </div></p>
+   <h2 style="background-color:rgb(0, 255, 255);color:white">
+        <table style="width:100%">
+<tr>
+   <td><b>Date</b></td>
+   <td><b>Type</b></td>
+   <td><b>Details</b></td>
+   <td><b>Amount</b></td>
+  
+</tr>
+</table> 
+</style> 
+</h2>
+<tr><td> there are no results</td></tr>
+  </div>
+
+  <div id="tabs-2">
+  <p> no information </p>
+  </div>
+
+
+</div>
+ 
+ <script>
+         $(function() {
+            $( "#accordion-1" ).accordion();
+         });
+ </script>
+      <style>
+         #accordion-1{font-size: 14px;}
+      </style>
+        <div id="accordion-1">
+ <h3>Vendor and Invoice management  <td><input type = "button" value = "Learn more"></td></h3>
+ 
+   <div>
+      <p>
+         
+      </p>
+   </div>
+</body>
+</html>

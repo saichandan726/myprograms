@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<script>
+function validate(){
+
+var i, no, fact;
+fact=1;
+var x=document.getElementById("num").value;
+for(i=1; i<=x; i++)  
+{
+fact= fact*i;
+}  
+document.getElementById("answer").value= fact;
+}
+</script>
+</head>
+<body>
+<tr><td>
+Enter Num </td><td><input id="num"></td></tr><p></p>
+<tr><td>
+<button onclick="validate()">Factorial</button></td></tr>
+<td><input id="answer"></td>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<title>
+	STUDENT FORM
+</title>
+<script>
+function validation()
+{
+	 var x = document.forms["myForm"]["name"].value;
+	  var y=document.forms["myForm"]["Phonenumber"].value;
+   		 
+		if (x == null || x == "") {
+       			 alert("Name must be filled out");
+       			 return false;
+    		}else if(y.length<10){
+			alert("phone number must be 10 characters");
+			return false;
+		}
+		var n = document.getElementById('name').value;
+			console.log(n);
+		var s = document.getElementById('Phonenumber').value;
+			console.log(s);
+
+}
+
+</script>
+</head>
+<center>
+<body>
+
+	<h1> Student form </h1>
+<table border =0>
+<form name="myForm" action="test1.html"
+onsubmit="return validation()" method="post">
+
+<tr>
+	<td>Name</td>
+	<td><input type = "text" id="name" name="name" value=""></td>
+</tr><br>
+<tr>
+	<td>age</td>
+	<td><input type = "text"></td>
+</tr><br>
+
+<tr>
+	<td> Phone number +91</td>
+	<td><input type = "text" id="Phonenumber" name="Phonenumber" value =""></td>
+</tr>
+<tr>
+	<td>Male</td>
+	<td><input type = "radio" name = "gender" value = "Male"></td>
+
+	<td>Female</td>
+	<td><input type = "radio" name = "gender" value = "Female"></td>
+</tr>
+
+<tr>
+	<td> Address </td>
+	<td> <textarea width = 100 height =100></textarea></td>
+</tr>
+
+<td>Education</td>
+	
+
+<td> Highschool<input type="checkbox" value="Highschool" style="float:middle; vertical-align: middle; margin-top: 1px;" />
+     	 
+
+<tr><td></td><td>Diploma<input type="checkbox" value="Diploma" style="float:middle; vertical-align: middle; margin-top: 1px;" />
+     	 </tr>
+
+
+<tr><td></td><td>Degree <input type="checkbox" value="Degree" style="float:middle; vertical-align: middle; margin-top: 1px;" />
+     	</tr>
+
+<tr><td></td><td>PostGraduate<input type="checkbox" value="PostGraduate" style="float:middle; vertical-align: middle; margin-top: 1px;" />
+     	 </tr>
+
+<tr><td></td><td> Phd<input type="checkbox" value="Phd" style="float:middle; vertical-align: middle; margin-top: 1px;" />
+     	 </tr>
+
+<tr>
+	<td> City </td>
+	<td><select> 
+			<option> vizag <option>hyd <option> baglore <option> pune <option> mumbai</td>
+</tr>
+
+<tr>
+	<td> State </td>
+	<td><select> 
+			<option> AndhraPradesh <option>Telengana <option> Karnataka <option> MadhyaPradesh <option> UttaraPradesh</td>
+</tr>
+
+<tr>
+	<td>Pincode</td>
+	<td><input type = "text"></td>
+</tr><br>
+</table>
+
+<tr>
+	<td><input type = "button" value = "submit" onclick="return validation()"></td>
+	
+	<td><input type ="reset" value = "reset"></td>
+</tr>
+
+
+	
+
+</form>
+</body>
+</center>
+</html>
+
+

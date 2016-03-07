@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+
+<title>EMPLOYEE DETAILS</title>
+<div class="col-sm-8"><h4>EMPLOYEE DETAILS</h4></div>
+
+<div class="col-sm-8" id="container2">
+<div id="type_container">
+		<div class="row form-group" id="edit-0">
+		 <div class="col-md-2 control-label">
+          <label for="username" class="control-label">
+            Name 
+          </label>
+        </div>
+        <div class="col-md-3">
+		  <select data-placeholder="Choose an Type..." class="form-control" name="">
+		   <option disabled="disabled" selected="selected" value="0">Select</option>
+		 
+			<option value="sai">sai</option>
+			<option value="sas">sas</option>
+			<option value="nandy">nandy</option>
+			<option value="ravi">ravi</option>
+			<option value="krish">krish</option>
+			<option value="jagan">jagan</option>
+	
+        </select>
+
+
+
+        </div>
+		 <div class="col-md-2 control-label">
+          <label for="username" class="control-label">
+            phone 
+          </label>
+        </div>
+		 <div class="col-md-5 clearfix">
+			<div class="row col-md-3">
+			  <input type="text" maxlength ='10' class="form-control input-sm" name="" value=""/>
+			</div>
+
+
+			<div class="col-md-2 control-label">
+          <label for="username" class="control-label">
+            Address
+          </label>
+        </div>
+		 <div class="col-md-5 clearfix">
+			<div class="row col-md-8">
+			  <input type="text" maxlength ='60' class="form-control input-sm" name="" value=""/>
+			</div>
+
+
+			<!--<div class="col-md-3 control-label">
+          <label for="username" class="control-label">
+            sex
+          </label>
+        </div>
+        <div class="col-md-8">
+		  <select data-placeholder="Choose an Type..." class="form-control" name="">
+		   <option disabled="disabled" selected="selected" value="0">sex</option>
+		  <optgroup label="Swedish Cars">
+			<option value="m">M</option>
+			<option value="f">F</option>
+		</select>-->
+
+
+
+
+			 <div class="col-md-2 control-label">
+			 
+			 <a class="add-type pull-right" href="javascript: void(0)" tiitle="Click to add more"><i class="glyphicon glyphicon-plus-sign"></i></a>
+			
+			 </div>
+
+        </div>
+		</div>
+</div>
+
+
+<div id="type-container" class="hide">
+<div class="row form-group type-row" id="">
+		 <div class="col-md-2 control-label">
+          <label for="username" class="control-label">
+            Name :
+          </label>
+        </div>
+        <div class="col-md-3">
+		  <select data-placeholder="Choose an Type..." class="form-control" name="">
+				<option disabled="disabled" selected="selected" value="0">Select</option>
+		  <option value="sai">sai</option>
+			<option value="sas">sas</option>
+			<option value="nandy">nandy</option>
+			<option value="ravi">ravi</option>
+			<option value="krish">krish</option>
+			<option value="jagan">jagan</option>
+        </select>
+        </div>
+		 <div class="col-md-2 control-label">
+          <label for="username" class="control-label">
+            phone :
+          </label>
+        </div>
+		<div class="col-md-5 clearfix">
+        <div class="row col-md-3">
+          <input type="text" maxlength ='10' class="form-control input-sm" name="" value=""/>
+        </div>
+
+        <div class="col-md-2 control-label">
+          <label for="username" class="control-label">
+            Address
+          </label>
+        </div>
+		 <div class="col-md-5 clearfix">
+			<div class="row col-md-8">
+			  <input type="text" maxlength ='60' class="form-control input-sm" name="" value=""/>
+			</div>
+
+		<div class="col-md-3 control-label"><a class="remove-type pull-right" targetDiv="" data-id="0" href="javascript: void(0)"><i class="glyphicon glyphicon-trash"></i></a></div>
+	  </div>
+	</div>
+</div>
+</head>
+
+<script>
+jQuery(document).ready(function() {
+var doc = $(document);
+jQuery('a.add-type').die('click').live('click', function(e) {
+     e.preventDefault(); 
+    var content = jQuery('#type-container .type-row'),
+        element = null;
+    for(var i = 0; i<1; i++){
+        element = content.clone();
+		var type_div = 'teams_'+jQuery.now();
+		element.attr('id', type_div);
+		element.find('.remove-type').attr('targetDiv', type_div);
+        element.appendTo('#type_container');
+		
+      }
+	});
+	
+	jQuery(".remove-type").die('click').live('click', function (e) {
+    var didConfirm = confirm("Are you sure You want to delete");
+    if (didConfirm == true) {
+        var id = jQuery(this).attr('data-id');
+		var targetDiv = jQuery(this).attr('targetDiv');
+        //if (id == 0) {
+            //var trID = jQuery(this).parents("tr").attr('id');
+            jQuery('#' + targetDiv).remove();
+       // }
+        return true;
+    } else {
+        return false;
+    }
+  });
+
+});
+</script>
+</html>

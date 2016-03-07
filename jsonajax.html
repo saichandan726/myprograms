@@ -1,0 +1,90 @@
+<html>
+<body>
+
+<h2>AJAX</h2>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+
+function loadDoc() {  
+
+$.ajax({ 
+    method: 'GET', 
+    url: 'source.txt', 
+    data: { get_param: 'value' },
+
+    dataType: 'json',
+    success:function(users) {
+    	alert("sucess");
+     //alert(users.details.length);
+    	var i=0
+         document.writeln("<table border='1' width=100><tr><td>userid</td><td>title</td><td>name</td></tr>");
+
+           
+       for(i = 0;i<users.details.length;i++){
+            
+            document.writeln("<tr>");
+            document.writeln("<td>");
+            document.writeln("<table border='1' width=100>");
+            
+           document.writeln(  users.details[i].userid);
+            
+          document.writeln("</table>");
+            document.writeln("</td>");
+
+
+          document.writeln("<td>");
+            document.writeln("<table border='1' width=500>");
+            
+          // document.writeln(  users.details[i].userid);
+           document.writeln( users.details[i].title);
+            //document.writeln( users.details[i].body);
+          document.writeln("</table>");
+            document.writeln("</td>");
+
+
+             document.writeln("<td>");
+            document.writeln("<table border='1' width=900>");
+            
+          // document.writeln(  users.details[i].userid);
+          // document.writeln( users.details[i].title);
+            document.writeln( users.details[i].body);
+          document.writeln("</table>");
+            document.writeln("</td>");
+            document.writeln("</tr>");
+         }
+
+       
+            
+        document.writeln("</table>"); 
+        
+        /* var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "source.txt", true);
+  xhttp.send();
+*/
+        
+    },
+    error:function(){
+    	alert("error");
+    }
+    
+});
+
+}
+
+
+</script>
+
+</body>
+</html>
+
+

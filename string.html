@@ -1,0 +1,30 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<form>
+	<input id="f1" name ="f1" value=""/></br>
+<!--<button onclick="myFunction()">Analyse</button>-->
+<input type="button" onclick="myFunction()" id='Analyse' value="Analyse"> 
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+	
+    var str="";
+    str =document.getElementById("f1").value;
+    var n = str.length;
+    document.getElementById("demo").innerHTML = n;
+
+    String.prototype.count = function(match) {
+var res = this.match(new RegExp(match));
+if (res==null) { return 0; }
+return res.length;
+}
+  }  
+</script>
+
+</body>
+</html>
+

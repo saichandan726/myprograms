@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>    
+    <title>jQuery UI Dialog - Modal form</title>
+   <!--  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.c">-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" type="text/javascript"></script> 
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->   
+    <style type="text/css">
+    body {
+    font-size: 62.5%;
+}
+label, input {
+    display: block;
+}
+input.text {
+    margin-bottom: 12px;
+    width: 95%;
+    padding: .4em;
+}
+fieldset {
+    padding: 0;
+    border: 0;
+    margin-top: 25px;
+}
+h1 {
+    font-size: 1.2em;
+    margin: .6em 0;
+}
+div#users-contain {
+    width: 350px;
+    margin: 20px 0;
+}
+div#users-contain table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+div#users-contain table td, div#users-contain table th {
+    border: 1px solid #eee;
+    padding: .6em 10px;
+    text-align: left;
+}
+.ui-dialog .ui-state-error {
+    padding: .3em;
+}
+.validateTips {
+    border: 1px solid transparent;
+    padding: 0.3em;
+}
+#dialog-form {
+    display: none;
+}
+}
+</style>
+    <script type="text/javascript">
+        $(function () {
+
+            var new_dialog = function (type, row) {
+                var dlg = $("#dialog-form").clone();
+                //var id = dlg.find(("#id")),
+                var id = dlg.find(("#id")),
+            title = dlg.find(("#title")),
+            body = dlg.find(("#body")),
+           // password = dlg.find(("#password"));
+                type = type || 'Create';
+                var config = {
+                    autoOpen: true,
+                    height: 300,
+                    width: 350,
+                    modal: true,
+                    buttons: {
+                       // class="btn btn-success",
+                        "Create an id": save_data,
+                        "Cancel": function () {
+                            dlg.dialog("close");
+                        }
+                    },
+                    close: function () {
+                        dlg.remove();
+                    }
+                };
+                 if (type === 'update') {
+                    config.title = "update User";
+                    get_data();
+                    delete (config.buttons['Create an id']);
+                    config.buttons['update account'] = function () {
+                        row.remove();
+                        save_data();
+
+                    };
+
+                }
+              dlg.dialog(config);
+
+                function get_data() {
+
+                }
+
+                function save_data() {
+                    $("#users tbody").append("<tr>" + "<td>" + (id.find("option:selected").text() + ' ') + "<td>" + title.val() + "</td>" + "<td>" + body.val() + "</td>" + "<td><a href='' class='update'>update</a></td>" + "<td><span class='delete'><a href=''>Delete</a></span></td>" + "</tr>");
+                    dlg.dialog("close");
+                }
+            };
+
+            $(document).on('click', 'span.delete', function () {
+                $(this).closest('tr').find('td').fadeOut(1000,
+
+        function () {
+            // alert($(this).text());
+            $(this).parents('tr:first').remove();
+        });
+
+                return false;
+            });
+            $(document).on('click', 'td a.update', function () {
+                new_dialog('update', $(this).parents('tr'));
+                return false;
+            });
+
+            $("#create-id").button().click(new_dialog);
+
+        });
+</script>
+
+</head>
+
+<body>   
+    <p id="demo"></p> 
+    <div id="dialog-form" title="Create new id">
+        <p class="validateTips">
+            All form fields are required.</p>        
+            <form>
+        <fieldset>
+            <label for="id">
+               id</label>
+          <select id="id">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+          
+            <tr> <td>title</td>
+    <td><input type = "text" id="title" name="title" value=""></td>
+</tr><br>
+<tr> <td>body</td>
+    <td><input type = "text" id="body" name="body" value=""></td>
+</tr>
+ 
+        </fieldset>
+        </form>
+    </div>
+    <div id="users-contain" class="ui-widget">
+        <h1>
+            Existing Users:</h1>
+        <table id="users" class="ui-widget ui-widget-content">
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>id</th>
+                    <th>title </th>
+                    <th>body</th>
+                    <th> Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr> <td class="custom-name">  </td>
+                    <td> </td>
+                    <td> </td> 
+                       <td></td><td><a class="update" href=""></a> </td>
+                    <td><span class="delete"><a href=""></a></span>   </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="create-id">
+        Create new id</button>
+
+
+
+
+<!--<script>
+    var details = '{"user":[' +
+'{"id":"1","title":sunt aut facere repellat provident occaecati excepturi optio reprehenderit" ,"body":"quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"},' +
+'{"id":"","title":"","body":"" },' +
+'{"id":"","title":"","body":"" }'
+]}';
+
+obj = JSON.parse(details);
+document.getElementById("demo").innerHTML =
+obj.user[1].id + " " + obj.user[1].title + " " + obj.user[1].body;
+    
+    </script>-->
+
+    
+</body>
+</html>
+
+
+
+
+
+
+

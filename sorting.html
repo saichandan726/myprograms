@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Sort</title>
+  <script>
+
+	function numericalorder(a, b){ return a - b; }
+ 
+	function swap() {
+	  TextBoxes = 10;
+	  a = new Array();
+
+ 	for(i = 1; i <= TextBoxes; i++){
+		x = 'f' + i;
+		a[i-1] = document.getElementById(x).value;
+	  }
+	  
+ 
+	  a.sort(numericalorder);
+ 
+ 
+	  for(i = 1; i <= TextBoxes; i++){
+		x = 'f' + i;
+		document.getElementById(x).value = a[i-1];
+	  }
+	}
+  </script> 
+ </head>
+ <body>
+  <form name ='f'>
+   <input id="f1" value="" /> <br />
+   <input id="f2" value="" /> <br />
+   <input id="f3" value="" /> <br />
+   <input id="f4" value="" /> <br />
+   <input id="f5" value="" /> <br />
+   <input id="f6" value="" /> <br />
+   <input id="f7" value="" /> <br />
+   <input id="f8" value="" /> <br />
+   <input id="f9" value="" /> <br />
+   <input id="f10" value="" /> <br />
+   <br />
+   <input type="button" value="Swap" onclick="swap()" />
+  </form>
+
+ </body>
+</html>
